@@ -37,7 +37,8 @@
 						<a href="#" class="nav__link">Services</a> 
 						<a href="#" class="nav__link">Portfolio</a> 
 						<a href="#" class="nav__link">Review</a> 
-						<a href="#" class="nav__link">Contact</a> 
+						<a href="#" class="nav__link">Contact</a>
+                        <a href="#" class="nav__menu">Menu</a>
 						<a href="#contact-us-modal" rel="modal:open" class="button header__button">Contact us</a>
 					</nav>
 				</div>
@@ -400,6 +401,26 @@
 			// Options will go here
 		});
 	</script>
+
+    <script type="text/javascript">
+        $(function() {
+            var pull 		= $('.nav__menu');
+            menu 		= $('.nav__link');
+            menuHeight	= menu.height();
+
+            $(pull).on('click', function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
+
+            $(window).resize(function(){
+                var w = $(window).width();
+                if(w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
